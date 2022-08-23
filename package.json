@@ -1,0 +1,26 @@
+{
+  "name": "deviant",
+  "version": "1.0.0",
+  "description": "A Multipurpose Discord Bot!",
+  "main": "src/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/STORMTORM/Deviant.git"
+  },
+  "author": "Shubham",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/STORMTORM/Deviant/issues"
+  },
+  "homepage": "https://github.com/STORMTORM/Deviant#readme",
+  "dependencies": {
+    "@discordjs/rest": "^1.1.0",
+    "chalk": "^5.0.1",
+    "discord-api-types": "^0.37.4",
+    "discord.js": "^14.3.0",
+    "dotenv": "^16.0.1"
+  }
+}
