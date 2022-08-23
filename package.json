@@ -4,7 +4,7 @@
   "description": "A Multipurpose Discord Bot!",
   "main": "src/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon ."
   },
   "repository": {
     "type": "git",
@@ -22,5 +22,8 @@
     "discord-api-types": "^0.37.4",
     "discord.js": "^14.3.0",
     "dotenv": "^16.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
   }
 }

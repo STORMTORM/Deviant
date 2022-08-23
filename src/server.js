@@ -13,6 +13,6 @@ for(const folder of functions){
     for(const file of files) require(`./functions/${folder}/${file}`)(client);
 }
 
-client.events();
-client.commands();
+client.eventHandler();
+client.commandHandler();
 client.login(token)
