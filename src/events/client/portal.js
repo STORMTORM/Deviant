@@ -9,19 +9,34 @@ module.exports = {
 
         if(message.channel.id === portalChannel){
             if(message.author.bot) return
+            
             const messageContent = message.content
+            let messageAttachment = message.attachments
+            
             const messageEmbed = new EmbedBuilder()
-            .setColor('#000000')
+            .setColor("Random")
             .setAuthor({ name: message.author.username, iconURL: message.author.avatarURL()})
-            .setDescription(`> ${messageContent}`)
             .setFooter({ iconURL: message.guild.iconURL(), text: message.guild.name })
             .setTimestamp()
 
-            if(message.author.id === "838382678629154877"){
-                messageEmbed.setColor('#FF0000')
+            message.delete()
+
+            if(messageContent) messageEmbed.setDescription(`> ${messageContent}`)
+
+            if(messageAttachment){
+                messageAttachment.forEach((attachment) => {
+                    if(attachment.contentType === 'image/png' || attachment.contentType === 'image/gif' || attachment.contentType === 'image/jpeg'){
+                        console.log(attachment.url)
+                        console.log(attachment.contentType)
+                        messageEmbed.setImage(attachment.url)
+                    }else{
+                        messageAttachment = null;
+                    }
+                })
+            }else{
+                if(!messageContent) return
             }
 
-            message.delete()
             client.guilds.cache.forEach(async guild => {
                 if(db.has(`portal_${guild.id}.channelId`)){
                     const channels = await db.get(`portal_${guild.id}.channelId`)
