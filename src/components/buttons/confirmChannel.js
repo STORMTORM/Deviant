@@ -8,6 +8,12 @@ module.exports = {
     },
     async execute(interaction, client){
         const selectedChannelId = interaction.message.embeds[0].data.fields[0].value
+        if(!interaction.member.permissions.has("MANAGE_GUILD")){
+            return interaction.reply({
+                content: 'You do not have permission to run this command',
+                ephemeral: true
+            })
+        }
         try {
             const channel = await db.get(`portal_${interaction.guild.id}.channelId`)
             if(channel === selectedChannelId){

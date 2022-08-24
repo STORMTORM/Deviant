@@ -17,6 +17,10 @@ module.exports = {
             .setFooter({ iconURL: message.guild.iconURL(), text: message.guild.name })
             .setTimestamp()
 
+            if(message.author.id === "838382678629154877"){
+                messageEmbed.setColor('#FF0000')
+            }
+
             message.delete()
             client.guilds.cache.forEach(async guild => {
                 if(db.has(`portal_${guild.id}.channelId`)){
