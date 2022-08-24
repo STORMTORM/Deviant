@@ -1,5 +1,6 @@
 const { REST } = require('@discordjs/rest')
 const { Routes } = require('discord-api-types/v9')
+const { clientId } = process.env
 const fs = require('fs')
 
 module.exports = (client) => {
@@ -17,7 +18,6 @@ module.exports = (client) => {
             }
         }
 
-        const clientId = '849320664476811319';
         const rest = new REST({ version:"9" }).setToken(process.env.token)
 
         try {
