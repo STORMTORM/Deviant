@@ -16,6 +16,28 @@ module.exports = {
                     ephemeral:true
                 })  
             }
+        }else if(interaction.isButton()){
+            const { buttons } = client
+            const { customId } = interaction;
+            const button = buttons.get(customId)
+            if(!button) return new Error('No button')
+
+            try{
+                await button.execute(interaction, client)
+            } catch(err){
+                console.log(err)
+            }
+        } else if(interaction.isSelectMenu()){
+            const { selectMenus } = client;
+            const { customId } = interaction;
+            const menu = selectMenus.get(customId)
+            if(!menu) return new Error('No menu')
+
+            try {
+                await menu.execute(interaction, client)
+            } catch (err) {
+                console.log(err)
+            }
         }
     }
 }

@@ -13,7 +13,7 @@ module.exports = {
         const pingEmbed = new EmbedBuilder()
             .setColor('#000000')
             .setAuthor({ name: 'Deviants Ping', iconURL: client.user.avatarURL()})
-            .setDescription(`**API Latency - ${client.ws.ping}ms\nClient Ping - ${message.createdTimestamp - interaction.createdTimestamp}**`)
+            .setDescription(`**API Latency - ${client.ws.ping}ms\nClient Ping - ${message.createdTimestamp - interaction.createdTimestamp}ms**`)
 
         await interaction.editReply({
             embeds: [pingEmbed]

@@ -18,10 +18,12 @@
   "homepage": "https://github.com/STORMTORM/Deviant#readme",
   "dependencies": {
     "@discordjs/rest": "^1.1.0",
+    "better-sqlite3": "^7.6.2",
     "chalk": "^5.0.1",
     "discord-api-types": "^0.37.4",
     "discord.js": "^14.3.0",
-    "dotenv": "^16.0.1"
+    "dotenv": "^16.0.1",
+    "quick.db": "^9.0.6"
   },
   "devDependencies": {
     "nodemon": "^2.0.19"
