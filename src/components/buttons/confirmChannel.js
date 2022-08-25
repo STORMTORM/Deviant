@@ -21,7 +21,7 @@ module.exports = {
                     .setColor('#000000')
                     .setAuthor({ name: 'Deviant Portal', iconURL: client.user.avatarURL() })
                     .addFields({ name:`Channel ID`, value:`${selectedChannelId}` })
-                    .setDescription(`**<#${selectedChannelId}> is already a global channel**`)
+                    .setDescription(`**<#${selectedChannelId}> is already connected to global chat**`)
 
                     return await interaction.editReply({
                         embeds: [alreadyExists],
@@ -48,7 +48,7 @@ module.exports = {
                 const successEmbed = new EmbedBuilder()
                     .setColor('#006400')
                     .setAuthor({ name: 'Deviant Portal', iconURL: client.user.avatarURL() })
-                    .setDescription(`**<#${selectedChannelId}> is now a global channel.**`)
+                    .setDescription(`**<#${selectedChannelId}> has been connected to global chat.**`)
                 interaction.reply({
                     embeds: [successEmbed]
                 })
@@ -57,7 +57,7 @@ module.exports = {
             const errorEmbed = new EmbedBuilder()
                 .setColor('#8b0000')
                 .setAuthor({ name: 'Deviant Portal', iconURL: client.user.avatarURL() })
-                .setDescription(`**An error occured while making that channel global.**`)
+                .setDescription(`**An error occured while connecting that channel to global chat.**`)
             interaction.reply({
                 embeds: [errorEmbed]
             })

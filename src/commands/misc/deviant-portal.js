@@ -18,6 +18,11 @@ module.exports = {
             .setLabel(`Edit Profile`)
             .setStyle(ButtonStyle.Primary)
 
+        const removeButton = new ButtonBuilder()
+            .setCustomId('removeChannel')
+            .setLabel(`Remove Channel`)
+            .setStyle(ButtonStyle.Danger)
+
         const confirmButton = new ButtonBuilder()
             .setCustomId('confirmChannel')
             .setLabel(`Confirm`)
@@ -76,16 +81,19 @@ module.exports = {
             .setDescription('> **Deviant Portal will make the selected channel global which means people from different servers can talk together in a single channel.\n> To make a channel global use \`/portal #channel\` **')
             
             const alreadyChannel = await db.get(`portal_${interaction.guild.id}.channelId`)
+            let components = new ActionRowBuilder().addComponents(editProfileButton)
 
             if(alreadyChannel){
                 portalEmbed
                     .setDescription(`> **Deviant Portal will make the selected channel global which means people from different servers can talk together in a single channel.**`)
                     .setFields({ name:`Current Global Channel`, value:`<#${alreadyChannel}>` })
+
+                components.addComponents(removeButton)
             }
 
             await interaction.editReply({
                 embeds: [portalEmbed],
-                components: [new ActionRowBuilder().addComponents(editProfileButton)]
+                components: [components]
             })
         }
     }
