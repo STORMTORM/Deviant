@@ -26,10 +26,9 @@ module.exports = {
             if(messageAttachment){
                 messageAttachment.forEach((attachment) => {
                     if(attachment.contentType === 'image/png' || attachment.contentType === 'image/gif' || attachment.contentType === 'image/jpeg'){
-                        console.log(attachment.url)
-                        console.log(attachment.contentType)
                         messageEmbed.setImage(attachment.url)
-                    }else{
+                    }
+                    else{
                         messageAttachment = null;
                     }
                 })

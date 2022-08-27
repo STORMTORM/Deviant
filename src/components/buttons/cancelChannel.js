@@ -1,4 +1,4 @@
-const { EmbedBuilder } = require("discord.js")
+const { EmbedBuilder, PermissionFlagsBits } = require("discord.js")
 
 
 module.exports = {
@@ -6,6 +6,12 @@ module.exports = {
         name:`cancelChannel`
     },
     async execute(interaction, client){
+        if(!interaction.member.permissions.has(PermissionFlagsBits.ManageGuild)){
+            return interaction.reply({
+                content: 'You do not have permission to run this command',
+                ephemeral: true
+            })
+        }
         interaction.message.delete()
         await interaction.reply({
             content:`Request was successfully cancelled`,

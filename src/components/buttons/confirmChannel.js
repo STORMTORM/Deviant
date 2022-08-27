@@ -1,4 +1,4 @@
-const { EmbedBuilder } = require("discord.js")
+const { EmbedBuilder, PermissionFlagsBits } = require("discord.js")
 const { QuickDB } = require('quick.db')
 const db = new QuickDB()
 
@@ -8,7 +8,7 @@ module.exports = {
     },
     async execute(interaction, client){
         const selectedChannelId = interaction.message.embeds[0].data.fields[0].value
-        if(!interaction.member.permissions.has("MANAGE_GUILD")){
+        if(!interaction.member.permissions.has(PermissionFlagsBits.ManageGuild)){
             return interaction.reply({
                 content: 'You do not have permission to run this command',
                 ephemeral: true
